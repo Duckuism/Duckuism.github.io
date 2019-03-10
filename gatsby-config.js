@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Duckuism`,
+    author: `Youduk Han`,
+    description: `The only sin is mediocrity. - Martha graham`,
+    siteUrl: `https://duckuism.github.io/`,
     social: {
-      twitter: `kylemathews`,
+      github: `Duckuism`,
+      facebook: `originducku`,
+      medium: `@rnejrl123456`,
     },
   },
   plugins: [
