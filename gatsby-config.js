@@ -1,13 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Duckuism`,
-    author: `Youduk Han`,
-    description: `The only sin is mediocrity. - Martha graham`,
-    siteUrl: `https://duckuism.github.io/`,
+    title: `Gatsby Starter Blog`,
+    author: `Kyle Mathews`,
+    description: `A starter blog demonstrating what Gatsby can do.`,
+    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
-      github: `Duckuism`,
-      facebook: `originducku`,
-      medium: `@rnejrl123456`,
+      twitter: `kylemathews`,
     },
   },
   plugins: [
