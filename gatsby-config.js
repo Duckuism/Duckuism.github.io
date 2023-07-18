@@ -9,15 +9,16 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Duckuism`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Youduck Han`,
+      summary: `The only sin is mediocrity - Martha Graham \n There is no royal road to geometry - Euclid`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      github: `Duckuism`,
+      medium: `duckuism`,
     },
   },
   plugins: [
