@@ -4,10 +4,9 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-module.exports = {
+import type {GatsbyConfig} from 'gatsby';
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: `Duckuism`,
     author: {
@@ -21,8 +20,10 @@ module.exports = {
       medium: `duckuism`,
     },
   },
+  graphqlTypegen: true,
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -124,3 +125,5 @@ module.exports = {
     },
   ],
 }
+
+export default config
