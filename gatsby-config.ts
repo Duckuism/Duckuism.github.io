@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
-import type {GatsbyConfig} from 'gatsby';
+import { graphql, type GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -63,7 +63,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
-        query: `
+        query: graphql`
           {
             site {
               siteMetadata {
@@ -77,32 +77,61 @@ const config: GatsbyConfig = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map(node => {
-                return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
-                  date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
-            },
-            query: `{
-              allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
-                nodes {
-                  excerpt
-                  html
-                  fields {
-                    slug
+            serialize: ({
+              query: { site, allMarkdownRemark },
+            }: {
+              query: {
+                site: {
+                  siteMetadata: {
+                    title: string
+                    description: string
+                    siteUrl: string
                   }
-                  frontmatter {
-                    title
-                    date
+                }
+                allMarkdownRemark: {
+                  nodes: {
+                    frontmatter: { date: any }
+                    excerpt: any
+                    fields: { slug: any }
+                    html: any
+                  }[]
+                }
+              }
+            }) => {
+              return allMarkdownRemark.nodes.map(
+                (node: {
+                  frontmatter: { date: any }
+                  excerpt: any
+                  fields: { slug: any }
+                  html: any
+                }) => {
+                  return Object.assign({}, node.frontmatter, {
+                    description: node.excerpt,
+                    date: node.frontmatter.date,
+                    url: site.siteMetadata.siteUrl + node.fields.slug,
+                    guid: site.siteMetadata.siteUrl + node.fields.slug,
+                    custom_elements: [{ "content:encoded": node.html }],
+                  })
+                }
+              )
+            },
+            query: graphql`
+              {
+                allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                    }
                   }
                 }
               }
-            }`,
+            `,
             output: "/rss.xml",
             title: "Gatsby Starter Blog RSS Feed",
           },

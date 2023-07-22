@@ -2787,10 +2787,15 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
-type createPagesQueryVariables = Exact<{ [key: string]: never; }>;
+type NotFountPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type createPagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string | null } | null }> } };
+type NotFountPageQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null };
+
+type CreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type CreatePagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string | null } | null }> } };
 
 
 }

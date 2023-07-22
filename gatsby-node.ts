@@ -9,8 +9,8 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
   const { createPage } = actions
 
   // Get all markdown blog posts sorted by date
-  const result = await graphql(`
-    query createPages {
+  const result = await graphql<Queries.CreatePagesQuery>(`#graphql
+    query CreatePages {
       allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
         nodes {
           id
@@ -30,19 +30,19 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     return
   }
 
-  const posts = result.data.allMarkdownRemark.nodes
+  const posts = result.data?.allMarkdownRemark.nodes
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  if (posts.length > 0) {
-    posts.forEach((post: { fields: { slug: any }; id: any }, index: number) => {
+  if (posts && posts?.length > 0) {
+    posts?.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
 
       createPage({
-        path: post.fields.slug,
+        path: post.fields?.slug ?? '',
         component: blogPost,
         context: {
           id: post.id,
@@ -77,7 +77,7 @@ export const createSchemaCustomization:GatsbyNode['createSchemaCustomization'] =
   // Also explicitly define the Markdown frontmatter
   // This way the "MarkdownRemark" queries will return `null` even when no
   // blog posts are stored inside "content/blog" instead of returning an error
-  createTypes(`
+  createTypes(`#graphql
     type SiteSiteMetadata {
       author: Author
       siteUrl: String
@@ -95,6 +95,8 @@ export const createSchemaCustomization:GatsbyNode['createSchemaCustomization'] =
     }
 
     type MarkdownRemark implements Node {
+      excerpt(pruneLength: Int): String
+      html: String
       frontmatter: Frontmatter
       fields: Fields
     }
