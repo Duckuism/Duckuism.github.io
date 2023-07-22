@@ -50,8 +50,12 @@ const BlogPostTemplate = () => {
 
   const siteTitle = site?.siteMetadata?.title || `Title`
 
+  const isBrowser = () => typeof window !== "undefined"
+
+  if (!isBrowser()) return null
+
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={window.location} title={siteTitle}>
       <article
         className="blog-post"
         itemScope

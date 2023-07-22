@@ -32,9 +32,13 @@ const BlogIndex = () => {
   const siteTitle = data.site?.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
+  const isBrowser = () => typeof window !== "undefined"
+
+  if (!isBrowser()) return null
+
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={window.location} title={siteTitle}>
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -46,7 +50,7 @@ const BlogIndex = () => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={window.location} title={siteTitle}>
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
