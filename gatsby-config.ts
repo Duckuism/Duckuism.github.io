@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
-import { graphql, type GatsbyConfig } from "gatsby"
+import { type GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -71,7 +71,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
-        query: graphql`
+        query: /* GraphQL */ `
           {
             site {
               siteMetadata {
@@ -123,7 +123,7 @@ const config: GatsbyConfig = {
                 }
               )
             },
-            query: graphql`
+            query: /* GraphQL */ `
               {
                 allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
                   nodes {

@@ -2753,7 +2753,7 @@ type BlogIndexQueryVariables = Exact<{ [key: string]: never; }>;
 type BlogIndexQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly excerpt: string | null, readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly date: string | null, readonly title: string | null, readonly description: string | null } | null }> } };
 
 type BlogPostBySlugQueryVariables = Exact<{
-  id: Scalars['String'];
+  id: InputMaybe<Scalars['String']>;
   previousPostId: InputMaybe<Scalars['String']>;
   nextPostId: InputMaybe<Scalars['String']>;
 }>;
