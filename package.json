@@ -47,7 +47,7 @@
     "url": "git+https://github.com/duckuism.git"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "react-scripts build & gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
@@ -57,7 +57,6 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gatsby build && gh-pages -d public -b main"
   }
 }
