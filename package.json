@@ -8,13 +8,14 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "@fontsource/merriweather": "^5.0.3",
     "@fontsource-variable/montserrat": "^5.0.4",
+    "@fontsource/merriweather": "^5.0.3",
     "gatsby": "^5.11.0",
     "gatsby-plugin-feed": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-sharp": "^5.11.0",
+    "gatsby-plugin-typescript": "^5.11.0",
     "gatsby-remark-images": "^7.11.0",
     "gatsby-remark-prismjs": "^7.11.0",
     "gatsby-remark-responsive-iframe": "^6.11.1",
@@ -26,7 +27,6 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "prettier": "^2.8.8",
     "@graphql-eslint/eslint-plugin": "^3.10.3",
     "@types/node": "^17.0.21",
     "@types/react": "^17.0.39",
@@ -34,6 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
     "eslint": "^8.15.0",
+    "prettier": "^2.8.8",
     "typescript": "^4.5.5"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
