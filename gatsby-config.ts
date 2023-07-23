@@ -11,7 +11,7 @@ const config: GatsbyConfig = {
     title: `Duckuism`,
     author: {
       name: `Youduck Han`,
-      summary: `The only sin is mediocrity - Martha Graham \n There is no royal road to geometry - Euclid`,
+      summary: `<p>The only sin is mediocrity - Martha Graham <br> There is no royal road to geometry - Euclid</p>`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,

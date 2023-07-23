@@ -8,6 +8,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import styled from "styled-components"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -32,32 +33,96 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social
 
   return (
-    <div className="bio">
-      <StaticImage
-        className="bio-avatar"
-        layout="fixed"
-        formats={["auto", "webp", "avif"]}
-        src="../images/profile-pic.jpeg"
-        width={50}
-        height={50}
-        quality={95}
-        alt="Profile picture"
-      />
+    <Container>
+      <Avatar>
+        <StaticImage
+          layout="fixed"
+          formats={["auto", "webp", "avif"]}
+          src="../images/simpson_avatar_circle.png"
+          width={100}
+          height={100}
+          quality={95}
+          alt="Profile picture"
+        />
+      </Avatar>
       {author?.name && (
-        <>
-          <p>{author?.summary || null}</p>
-          <div>
-            <div>
-              <a href={`https://github.com/${social?.github}`}>Github</a>
-            </div>
-            <div>
-              <a href={`https://medium.com/${social?.medium}`}>Medium</a>
-            </div>
-          </div>
-        </>
+        <Description>
+          <SummaryWrapper>
+            <Summary dangerouslySetInnerHTML={{ __html: author?.summary }} />
+          </SummaryWrapper>
+          <RefWrapper>
+            <LinkWrapper>
+              <div>
+                <a
+                  href={`https://github.com/${social?.github}`}
+                  target="_blank"
+                >
+                  <StaticImage
+                    width={25}
+                    src="../images/github_logo.png"
+                    alt="github_logo"
+                  />
+                </a>
+              </div>
+              <div>
+                <a
+                  href={`https://medium.com/${social?.medium}`}
+                  target="_blank"
+                >
+                  <StaticImage
+                    width={25}
+                    src="../images/medium_logo.png"
+                    alt="medium_logo"
+                  />
+                </a>
+              </div>
+            </LinkWrapper>
+            <CountryWrapper>
+              <div>📍 South Korea</div>
+            </CountryWrapper>
+          </RefWrapper>
+        </Description>
       )}
-    </div>
+    </Container>
   )
 }
 
 export default Bio
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: var(--spacing-8);
+`
+const Avatar = styled.div`
+  img {
+    border-radius: 50%;
+  }
+
+  margin-right: var(--spacing-4);
+`
+
+const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const SummaryWrapper = styled.div`
+  margin-bottom: var(--spacing-4);
+`
+
+const Summary = styled.p``
+
+const RefWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+const LinkWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+`
+const CountryWrapper = styled.div``
