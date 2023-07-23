@@ -7,6 +7,7 @@
   "author": "Duckuism <duckuism@gmail.com>",
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.0.4",
+    "@fontsource/gowun-dodum": "^5.0.5",
     "@fontsource/merriweather": "^5.0.3",
     "gatsby": "^5.11.0",
     "gatsby-plugin-feed": "^5.11.0",
