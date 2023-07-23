@@ -114,7 +114,9 @@ const Description = styled.div`
   flex-direction: column;
 `
 
-const MottoWrapper = styled.div``
+const MottoWrapper = styled.div`
+  margin-bottom: var(--spacing-4);
+`
 
 const Motto = styled.p`
   font-size: var(--fontSize-1);

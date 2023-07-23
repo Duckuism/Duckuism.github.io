@@ -11,10 +11,10 @@ const config: GatsbyConfig = {
     title: `Duckuism`,
     author: {
       name: `Youduck Han`,
-      summary: `돈과 술, 만화에 관심이 많고, 개발로 꿈을 꾸는 중입니다.`,
+      summary: `돈과 술, 만화와 철학에 관심이 많고, 개발로 삶을 지탱하고 있습니다.`,
       mottos: [
-        "The only sin is mediocrity - Martha Graham",
-        "There is no royal road to geometry - Euclid",
+        "# The only sin is mediocrity - Martha Graham",
+        "# There is no royal road to geometry - Euclid",
       ],
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
