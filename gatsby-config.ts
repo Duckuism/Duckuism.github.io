@@ -17,8 +17,8 @@ const config: GatsbyConfig = {
         "# There is no royal road to geometry - Euclid",
       ],
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `더 나은 미래가 올 것을 믿는 현실주의자`,
+    siteUrl: `https://duckuism.github.io/`,
     social: {
       github: `Duckuism`,
       medium: `duckuism`,
@@ -159,8 +159,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `Gatsby`,
+        name: `A Blog of Duckuism`,
+        short_name: `Dukcuism`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website
