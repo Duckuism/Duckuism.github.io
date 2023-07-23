@@ -96,6 +96,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       type Author {
         name: String
         summary: String
+        mottos: [String]
       }
 
       type Social {

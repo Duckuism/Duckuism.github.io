@@ -18,6 +18,7 @@ const Bio = () => {
           author {
             name
             summary
+            mottos
           }
           social {
             github
@@ -47,6 +48,11 @@ const Bio = () => {
       </Avatar>
       {author?.name && (
         <Description>
+          <MottoWrapper>
+            {React.Children.toArray(
+              author?.mottos.map((motto: string) => <Motto>{motto}</Motto>)
+            )}
+          </MottoWrapper>
           <SummaryWrapper>
             <Summary dangerouslySetInnerHTML={{ __html: author?.summary }} />
           </SummaryWrapper>
@@ -106,6 +112,14 @@ const Avatar = styled.div`
 const Description = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+const MottoWrapper = styled.div``
+
+const Motto = styled.p`
+  font-size: var(--fontSize-1);
+  font-style: oblique;
+  font-weight: var(--fontWeight-bold);
 `
 
 const SummaryWrapper = styled.div`
