@@ -118,7 +118,8 @@ const MottoWrapper = styled.div`
   margin-bottom: var(--spacing-4);
 `
 
-const Motto = styled.p`
+const Motto = styled.span`
+  display: block;
   font-size: var(--fontSize-1);
   font-style: oblique;
   font-weight: var(--fontWeight-bold);
@@ -128,7 +129,7 @@ const SummaryWrapper = styled.div`
   margin-bottom: var(--spacing-4);
 `
 
-const Summary = styled.p``
+const Summary = styled.span``
 
 const RefWrapper = styled.div`
   display: flex;
