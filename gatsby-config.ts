@@ -29,6 +29,12 @@ const config: GatsbyConfig = {
     `gatsby-plugin-image`,
     `gatsby-transformer-remark`,
     {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true, // defaults to false
