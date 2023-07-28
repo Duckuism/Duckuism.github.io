@@ -26,6 +26,14 @@ const config: GatsbyConfig = {
   },
   graphqlTypegen: true,
   plugins: [
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://duckuism.github.io/",
+        sitemap: "https://duckuism.github.io/sitemap-index.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-google-adsense`,
