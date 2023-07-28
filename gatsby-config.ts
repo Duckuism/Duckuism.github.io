@@ -26,6 +26,12 @@ const config: GatsbyConfig = {
   },
   graphqlTypegen: true,
   plugins: [
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["G-7LBQMZMMW5"],
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-transformer-remark`,
     {
