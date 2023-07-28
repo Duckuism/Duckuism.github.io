@@ -49,6 +49,10 @@ const Seo = ({
         name="google-site-verification"
         content="_FVAKhUAZhlKjGZYZpGaq734GwS5Irw4UD0f3w-pu6Q"
       />
+      <meta
+        name="naver-site-verification"
+        content="0439c218bfb3533159d38109635e44b0c6e63bb9"
+      />
       {children}
     </>
   )
