@@ -4,6 +4,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import styled from "styled-components"
 
 const BlogIndex = () => {
   const data = useStaticQuery<Queries.BlogIndexQuery>(graphql`
@@ -66,7 +67,7 @@ const BlogIndex = () => {
                 <header>
                   <h2>
                     <Link to={post.fields?.slug ?? ""} itemProp="url">
-                      <span itemProp="headline">{title}</span>
+                      <TitleText itemProp="headline">{title}</TitleText>
                     </Link>
                   </h2>
                   <small>{post.frontmatter?.date}</small>
@@ -97,3 +98,7 @@ export default BlogIndex
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 export const Head = () => <Seo title="All posts" description="" />
+
+const TitleText = styled.span`
+  font-weight: 600;
+`
