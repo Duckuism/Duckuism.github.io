@@ -29,7 +29,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-google-gtag",
       options: {
-        trackingIds: ["G-7LBQMZMMW5", "G-TF5YY92KPY"],
+        trackingIds: ["G-7LBQMZMMW5"],
       },
     },
     `gatsby-plugin-image`,
