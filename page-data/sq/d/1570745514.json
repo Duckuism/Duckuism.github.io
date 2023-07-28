@@ -1,1 +1,1 @@
-{"data":{"site":{"siteMetadata":{"title":"Duckuism"}},"allMarkdownRemark":{"nodes":[{"excerpt":"…","fields":{"slug":"/browserStorage/"},"frontmatter":{"date":"July 28, 2023","title":"웹 브라우저 저장공간","description":"쿠키와 웹 스토리(세션/로컬)"}}]}}}
+{"data":{"site":{"siteMetadata":{"title":"Duckuism"}},"allMarkdownRemark":{"nodes":[{"excerpt":"…","fields":{"slug":"/browserStorage/"},"frontmatter":{"date":"July 28, 2023","title":"웹 브라우저 저장공간","description":"쿠키와 웹 스토리지(세션 스토리지/로컬 스토리지)"}}]}}}
