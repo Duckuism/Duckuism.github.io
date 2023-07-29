@@ -4,6 +4,7 @@ import { HeadProps, Link, useStaticQuery, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { Comments } from "../components/comments"
 
 const BlogPostTemplate = () => {
   const data = useStaticQuery<Queries.BlogPostBySlugQuery>(graphql`
@@ -70,6 +71,7 @@ const BlogPostTemplate = () => {
           itemProp="articleBody"
         />
         <hr />
+        <Comments />
         <footer>
           <Bio />
         </footer>
