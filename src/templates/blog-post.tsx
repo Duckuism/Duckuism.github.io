@@ -1,52 +1,27 @@
 import * as React from "react"
-import { HeadProps, Link, useStaticQuery, graphql } from "gatsby"
+import { HeadProps, Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Comments } from "../components/comments"
 
-const BlogPostTemplate = () => {
-  const data = useStaticQuery<Queries.BlogPostBySlugQuery>(graphql`
-    query BlogPostBySlug(
-      $id: String
-      $previousPostId: String
-      $nextPostId: String
-    ) {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-      markdownRemark(id: { eq: $id }) {
-        id
-        excerpt(pruneLength: 160)
-        html
-        frontmatter {
-          title
-          date(formatString: "MMMM DD, YYYY")
-          description
-        }
-      }
-      previous: markdownRemark(id: { eq: $previousPostId }) {
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-        }
-      }
-      next: markdownRemark(id: { eq: $nextPostId }) {
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-        }
+interface Props {
+  data: {
+    markdownRemark: any
+    previous: any
+    next: any
+    site: {
+      siteMetadata: {
+        title: string
       }
     }
-  `)
+  }
+  pageContext?: any
+  location?: any
+}
 
+const BlogPostTemplate = ({ data, location }: Props) => {
   const { site, markdownRemark: post, previous, next } = data
 
   const siteTitle = site?.siteMetadata?.title || `Title`
@@ -56,7 +31,7 @@ const BlogPostTemplate = () => {
   if (!isBrowser()) return null
 
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <article
         className="blog-post"
         itemScope
@@ -118,3 +93,43 @@ export const Head = ({
 }
 
 export default BlogPostTemplate
+
+export const pageQuery = graphql`
+  query BlogPostBySlug(
+    $id: String!
+    $previousPostId: String
+    $nextPostId: String
+  ) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    markdownRemark(id: { eq: $id }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        description
+      }
+    }
+    previous: markdownRemark(id: { eq: $previousPostId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+      }
+    }
+    next: markdownRemark(id: { eq: $nextPostId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+      }
+    }
+  }
+`
